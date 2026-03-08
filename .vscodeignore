@@ -1,0 +1,15 @@
+.vscode/**
+.vscode-test/**
+out/test/**
+src/**
+.gitignore
+.vscodeignore
+tsconfig.json
+jsconfig.json
+vsc-extension-quickstart.md
+**/*.map
+.env
+.env.envvault.bak
+test_app.py
+sample.env
+logo.png.bak

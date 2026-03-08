@@ -1,0 +1,140 @@
+{
+  "name": "envvault",
+  "displayName": "EnvVault",
+  "description": "Securely manage and switch environment credentials in VS Code.",
+  "version": "1.0.3",
+  "publisher": "azmatsiddique",
+  "license": "MIT",
+  "icon": "logo.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/azmatsiddique/envault.git"
+  },
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Data Science",
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "envvault.switchEnvironment",
+        "title": "EnvVault: Switch Environment",
+        "icon": "$(play)"
+      },
+      {
+        "command": "envvault.addEnvironment",
+        "title": "Add Environment",
+        "icon": "$(add)"
+      },
+      {
+        "command": "envvault.refreshEntry",
+        "title": "Refresh",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "envvault.editEnvironment",
+        "title": "Edit Environment",
+        "icon": "$(edit)"
+      },
+      {
+        "command": "envvault.deleteEnvironment",
+        "title": "Delete Environment",
+        "icon": "$(trash)"
+      }
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "envvault.addEnvironment",
+          "when": "view == envvault-environments",
+          "group": "navigation"
+        },
+        {
+          "command": "envvault.refreshEntry",
+          "when": "view == envvault-environments",
+          "group": "navigation"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "envvault.switchEnvironment",
+          "when": "viewItem == environment",
+          "group": "inline"
+        },
+        {
+          "command": "envvault.editEnvironment",
+          "when": "viewItem == environment",
+          "group": "inline"
+        },
+        {
+          "command": "envvault.deleteEnvironment",
+          "when": "viewItem == environment",
+          "group": "1_modification"
+        }
+      ]
+    },
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "envvault-explorer",
+          "title": "EnvVault",
+          "icon": "$(lock)"
+        }
+      ]
+    },
+    "views": {
+      "envvault-explorer": [
+        {
+          "id": "envvault-environments",
+          "name": "Environments"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "EnvVault",
+      "properties": {
+        "envvault.injectionFiles": {
+          "type": "array",
+          "default": [
+            ".env",
+            "profiles.yml",
+            "config.yaml"
+          ],
+          "description": "Files to inject environment variables into."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/glob": "^8.1.0",
+    "@types/js-yaml": "^4.0.9",
+    "@types/mocha": "^10.0.6",
+    "@types/node": "18.x",
+    "@types/vscode": "^1.85.0",
+    "@typescript-eslint/eslint-plugin": "^6.15.0",
+    "@typescript-eslint/parser": "^6.15.0",
+    "@vscode/test-electron": "^2.3.8",
+    "eslint": "^8.56.0",
+    "glob": "^10.3.10",
+    "mocha": "^10.2.0",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "js-yaml": "^4.1.0"
+  }
+}
