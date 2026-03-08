@@ -2,7 +2,7 @@
   "name": "envvault",
   "displayName": "EnvVault",
   "description": "Securely manage and switch environment credentials in VS Code.",
-  "version": "1.0.3",
+  "version": "1.0.0",
   "publisher": "azmatsiddique",
   "license": "MIT",
   "icon": "logo.png",

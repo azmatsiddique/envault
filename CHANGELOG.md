@@ -1,14 +1,10 @@
 # Changelog
 
-## 1.0.2
-- Add **Edit Environment** functionality (available in sidebar and context menu).
-- Add **Delete Environment** functionality with confirmation prompt.
-- Update icons for better visibility in the sidebar.
-
-## 1.0.1
-- Fix runtime error "Cannot read properties of undefined (reading 'isProduction')" when switching environments from context menu.
-- Add icons to sidebar actions (Add Environment, Refresh).
-- Add support for switching environments directly from sidebar item context menus.
-
 ## 1.0.0
-- General release.
+- Initial public release of **EnvVault**.
+- Securely store environment secrets in the OS Keychain.
+- One-click environment switching with automatic file injection.
+- Support for `.env`, `profiles.yml`, and YAML configuration files.
+- **Production Guard**: 3-second safety delay and confirmation before switching to production environments.
+- **Visual Safety pill**: Color-coded status bar indicating active environment.
+- Sidebar UI for easy management of environments and secrets.
